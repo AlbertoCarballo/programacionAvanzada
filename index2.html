@@ -28,24 +28,76 @@
       ctx.fillStyle = "rgba(255,51,252,0.6)";
       ctx.fillRect(100, 100, 100, 100);
 
-      
-
-
       ctx.fillStyle = "green";
       ctx.beginPath();
-      ctx.moveTo(250,40);
-      ctx.lineTo(250,100);
-      ctx.lineTo(350,150);
-      ctx.closePath()
+      ctx.moveTo(250, 40);
+      ctx.lineTo(250, 100);
+      ctx.lineTo(350, 150);
+      ctx.closePath();
       ctx.stroke();
       ctx.fill();
-      
-      ctx.strokeRect(260,260,100,100);
 
-      ctx.strokeStyle= "pink";
+      ctx.strokeRect(260, 260, 100, 100);
+
+      ctx.strokeStyle = "pink";
       ctx.lineWidth = 5;
-      ctx.strokeRect(340,340,100,100);
-      
+      ctx.strokeRect(340, 340, 100, 100);
+
+      //bocaa
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "black";
+      ctx.beginPath();
+      ctx.arc(150, 450, 20, 0, 2 * Math.PI);
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "wheat";
+      ctx.fillRect(100, 355, 100, 100);
+      //fin boca
+
+      //sombrero
+      ctx.fillStyle = "black";
+      ctx.fillRect(100, 395, 100, 5);
+
+      ctx.fillStyle = "black";
+      ctx.fillRect(125, 300, 50, 100);
+
+      //fin sombrero
+
+      //ojos
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "black";
+      ctx.beginPath();
+      ctx.arc(125, 425, 20, 0, 2 * Math.PI);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "black";
+      ctx.beginPath();
+      ctx.arc(135, 425, 6, 0, 2 * Math.PI);
+      ctx.fillStyle = "black";
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "black";
+      ctx.beginPath();
+      ctx.arc(175, 425, 20, 0, 2 * Math.PI);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "black";
+      ctx.beginPath();
+      ctx.arc(165, 425, 6, 0, 2 * Math.PI);
+      ctx.fillStyle = "black";
+      ctx.fill();
+      ctx.stroke();
+      //fin ojos
     </script>
   </body>
 </html>
