@@ -14,7 +14,7 @@
     </style>
   </head>
   <body>
-    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <canvas id="myCanvas" width="1000" height="500"></canvas>
 
     <script type="text/javascript">
       const myCanvas = document.getElementById("myCanvas");
@@ -42,18 +42,15 @@
       ctx.strokeStyle = "pink";
       ctx.lineWidth = 5;
       ctx.strokeRect(340, 340, 100, 100);
-
+      //inicio actividad 4
       //bocaa
       ctx.lineWidth = 2;
       ctx.strokeStyle = "black";
       ctx.beginPath();
-      ctx.arc(150, 450, 20, 0, 2 * Math.PI);
+      ctx.arc(150, 450, 20, 0, 1 * Math.PI);
       ctx.fillStyle = "red";
       ctx.fill();
       ctx.stroke();
-
-      ctx.fillStyle = "wheat";
-      ctx.fillRect(100, 355, 100, 100);
       //fin boca
 
       //sombrero
@@ -98,6 +95,52 @@
       ctx.fill();
       ctx.stroke();
       //fin ojos
+      //fin actividad 4
+
+      //inicio actividad 5
+      //inicio de letras font
+      ctx.font = "51px Apple Chancery";
+      ctx.fillText("Hello There!", 147, 60);
+      ctx.font = "50px Apple Chancery";
+
+      const gradient = ctx.createLinearGradient(0, 0.5, 1.0, 100);
+      gradient.addColorStop("0", "magenta");
+      gradient.addColorStop("0.5", "blue");
+      gradient.addColorStop("1.0", "red");
+      ctx.fillStyle = gradient;
+      ctx.fillText("Hello There!", 150, 60);
+      // FIN FONT
+
+      //fin actividad 5
+
+      //inicio actividad 6
+      //inicio image
+      var img = new Image();
+      img.src = "cumpleanos.png";
+      ctx.drawImage(img, 350, 150);
+
+      //fin imagen
+      //fin actividad 6
+
+      //inicio actividad 7
+      //inicio gradiante
+      var gdr = ctx.createLinearGradient(500, 500, 400, 250);
+      gdr.addColorStop(0, "red");
+      gdr.addColorStop(1, "blue");
+      ctx.fillStyle = gdr;
+      ctx.fillRect(500, 300, 200, 100);
+      // fin gradiante
+      //inicio actividad 7
+
+      //inicio actividad 8
+      //circulo gradiante
+      const grd = ctx.createRadialGradient(700, 200, 5, 590, 560, 500);
+      grd.addColorStop(0, "yellow");
+      grd.addColorStop(1, "green");
+      ctx.fillStyle = grd;
+      ctx.fillRect(500, 150, 200, 100);
+      // fin circulo gradiante
+      //inicio actividad 8
     </script>
   </body>
 </html>
