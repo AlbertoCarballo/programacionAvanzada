@@ -20,23 +20,23 @@
       const myCanvas = document.getElementById("myCanvas");
       const ctx = myCanvas.getContext("2d");
 
-      var colorcito;
-      function getRandomColor() {
-        var trans = "0.5"; // 50% transparency
-        var color = "rgba(";
-        for (var i = 0; i < 3; i++) {
-          color += Math.floor(Math.random() * 255) + ",";
-        }
-        color += trans + ")"; // add the transparency
-        return color;
-      }
+      // var colorcito;
+      // function getRandomColor() {
+      //   var trans = "0.5"; // 50% transparency
+      //   var color = "rgba(";
+      //   for (var i = 0; i < 3; i++) {
+      //     color += Math.floor(Math.random() * 255) + ",";
+      //   }
+      //   color += trans + ")"; // add the transparency
+      //   return color;
+      // }
 
-      document
-        .getElementById("myCanvas")
-        .addEventListener("mouseover", function (e) {
-          colorcito = getRandomColor();
-          console.log(e);
-        });
+      // document
+      //   .getElementById("myCanvas")
+      //   .addEventListener("mouseover", function (e) {
+      //     colorcito = getRandomColor();
+      //     console.log(e);
+      //   });
 
       document
         .getElementById("myCanvas")
@@ -44,7 +44,7 @@
           {
             ctx.beginPath();
             ctx.arc(e.x, e.y, 20, 0, 2 * Math.PI);
-            ctx.fillStyle = colorcito;
+            ctx.fillStyle = "rgba(255,51,252,0.6)";
             ctx.fill();
             ctx.stroke();
             //console.log(e);
