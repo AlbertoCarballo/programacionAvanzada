@@ -20,33 +20,47 @@
       const myCanvas = document.getElementById("myCanvas");
       const ctx = myCanvas.getContext("2d");
 
-      // var colorcito;
-      // function getRandomColor() {
-      //   var trans = "0.5"; // 50% transparency
-      //   var color = "rgba(";
-      //   for (var i = 0; i < 3; i++) {
-      //     color += Math.floor(Math.random() * 255) + ",";
-      //   }
-      //   color += trans + ")"; // add the transparency
-      //   return color;
-      // }
+      var figura = 1;
 
-      // document
-      //   .getElementById("myCanvas")
-      //   .addEventListener("mouseover", function (e) {
-      //     colorcito = getRandomColor();
-      //     console.log(e);
-      //   });
+      var colorcito;
+      function getRandomColor() {
+        var trans = "0.5"; // 50% transparency
+        var color = "rgba(";
+        for (var i = 0; i < 3; i++) {
+          color += Math.floor(Math.random() * 255) + ",";
+        }
+        color += trans + ")"; // add the transparency
+        return color;
+      }
+
+      document
+        .getElementById("myCanvas")
+        .addEventListener("mouseover", function (e) {
+          colorcito = getRandomColor();
+          console.log(e);
+        });
+
+      document
+        .getElementById("myCanvas")
+        .addEventListener("mouseout", function (e) {
+          figura = figura == 1 ? 2 : 1;
+        });
 
       document
         .getElementById("myCanvas")
         .addEventListener("mousedown", function (e) {
           {
-            ctx.beginPath();
-            ctx.arc(e.x, e.y, 20, 0, 2 * Math.PI);
-            ctx.fillStyle = "rgba(255,51,252,0.6)";
-            ctx.fill();
-            ctx.stroke();
+            if (figura == 1) {
+              ctx.beginPath();
+              ctx.arc(e.x, e.y, 60, 0, 2 * Math.PI);
+              ctx.fillStyle = colorcito;
+              ctx.fill();
+              ctx.stroke();
+            } else {
+              ctx.fillStyle = colorcito;
+              ctx.fillRect(e.x, e.y, 100, 100);
+            }
+
             //console.log(e);
           }
         });
