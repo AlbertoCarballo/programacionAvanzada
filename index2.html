@@ -19,128 +19,161 @@
     <script type="text/javascript">
       const myCanvas = document.getElementById("myCanvas");
       const ctx = myCanvas.getContext("2d");
-      ctx.fillStyle = "rgb(35,25,190)";
-      ctx.fillRect(20, 20, 100, 100);
 
-      ctx.fillStyle = "rgb(190,25,60)";
-      ctx.fillRect(180, 180, 100, 100);
+      var colorcito;
+      function getRandomColor() {
+        var trans = "0.5"; // 50% transparency
+        var color = "rgba(";
+        for (var i = 0; i < 3; i++) {
+          color += Math.floor(Math.random() * 255) + ",";
+        }
+        color += trans + ")"; // add the transparency
+        return color;
+      }
 
-      ctx.fillStyle = "rgba(255,51,252,0.6)";
-      ctx.fillRect(100, 100, 100, 100);
+      document
+        .getElementById("myCanvas")
+        .addEventListener("mouseover", function (e) {
+          colorcito = getRandomColor();
+          console.log(e);
+        });
 
-      ctx.fillStyle = "green";
-      ctx.beginPath();
-      ctx.moveTo(250, 40);
-      ctx.lineTo(250, 100);
-      ctx.lineTo(350, 150);
-      ctx.closePath();
-      ctx.stroke();
-      ctx.fill();
+      document
+        .getElementById("myCanvas")
+        .addEventListener("mousedown", function (e) {
+          {
+            ctx.beginPath();
+            ctx.arc(e.x, e.y, 20, 0, 2 * Math.PI);
+            ctx.fillStyle = colorcito;
+            ctx.fill();
+            ctx.stroke();
+            //console.log(e);
+          }
+        });
+      // ctx.fillStyle = "rgb(35,25,190)";
+      // ctx.fillRect(20, 20, 100, 100);
 
-      ctx.strokeRect(260, 260, 100, 100);
+      // ctx.fillStyle = "rgb(190,25,60)";
+      // ctx.fillRect(180, 180, 100, 100);
 
-      ctx.strokeStyle = "pink";
-      ctx.lineWidth = 5;
-      ctx.strokeRect(340, 340, 100, 100);
-      //inicio actividad 4
-      //bocaa
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "black";
-      ctx.beginPath();
-      ctx.arc(150, 450, 20, 0, 1 * Math.PI);
-      ctx.fillStyle = "red";
-      ctx.fill();
-      ctx.stroke();
-      //fin boca
+      // ctx.fillStyle = "rgba(255,51,252,0.6)";
+      // ctx.fillRect(100, 100, 100, 100);
 
-      //sombrero
-      ctx.fillStyle = "black";
-      ctx.fillRect(100, 395, 100, 5);
+      // ctx.fillStyle = "green";
+      // ctx.beginPath();
+      // ctx.moveTo(250, 40);
+      // ctx.lineTo(250, 100);
+      // ctx.lineTo(350, 150);
+      // ctx.closePath();
+      // ctx.stroke();
+      // ctx.fill();
 
-      ctx.fillStyle = "black";
-      ctx.fillRect(125, 300, 50, 100);
+      // ctx.strokeRect(260, 260, 100, 100);
 
-      //fin sombrero
+      // ctx.strokeStyle = "pink";
+      // ctx.lineWidth = 5;
+      // ctx.strokeRect(340, 340, 100, 100);
+      // inicio actividad 4
+      // bocaa
+      // ctx.lineWidth = 2;
+      // ctx.strokeStyle = "black";
+      // ctx.beginPath();
+      // ctx.arc(150, 450, 20, 0, 1 * Math.PI);
+      // ctx.fillStyle = "red";
+      // ctx.fill();
+      // ctx.stroke();
+      // fin boca
 
-      //ojos
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "black";
-      ctx.beginPath();
-      ctx.arc(125, 425, 20, 0, 2 * Math.PI);
-      ctx.fillStyle = "white";
-      ctx.fill();
-      ctx.stroke();
+      // sombrero
+      // ctx.fillStyle = "black";
+      // ctx.fillRect(100, 395, 100, 5);
 
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "black";
-      ctx.beginPath();
-      ctx.arc(135, 425, 6, 0, 2 * Math.PI);
-      ctx.fillStyle = "black";
-      ctx.fill();
-      ctx.stroke();
+      // ctx.fillStyle = "black";
+      // ctx.fillRect(125, 300, 50, 100);
 
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "black";
-      ctx.beginPath();
-      ctx.arc(175, 425, 20, 0, 2 * Math.PI);
-      ctx.fillStyle = "white";
-      ctx.fill();
-      ctx.stroke();
+      // fin sombrero
 
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "black";
-      ctx.beginPath();
-      ctx.arc(165, 425, 6, 0, 2 * Math.PI);
-      ctx.fillStyle = "black";
-      ctx.fill();
-      ctx.stroke();
-      //fin ojos
-      //fin actividad 4
+      // ojos
+      // ctx.lineWidth = 2;
+      // ctx.strokeStyle = "black";
+      // ctx.beginPath();
+      // ctx.arc(125, 425, 20, 0, 2 * Math.PI);
+      // ctx.fillStyle = "white";
+      // ctx.fill();
+      // ctx.stroke();
 
-      //inicio actividad 5
-      //inicio de letras font
-      ctx.font = "51px Apple Chancery";
-      ctx.fillText("Hello There!", 147, 60);
-      ctx.font = "50px Apple Chancery";
+      // ctx.lineWidth = 2;
+      // ctx.strokeStyle = "black";
+      // ctx.beginPath();
+      // ctx.arc(135, 425, 6, 0, 2 * Math.PI);
+      // ctx.fillStyle = "black";
+      // ctx.fill();
+      // ctx.stroke();
 
-      const gradient = ctx.createLinearGradient(0, 0.5, 1.0, 100);
-      gradient.addColorStop("0", "magenta");
-      gradient.addColorStop("0.5", "blue");
-      gradient.addColorStop("1.0", "red");
-      ctx.fillStyle = gradient;
-      ctx.fillText("Hello There!", 150, 60);
+      // ctx.lineWidth = 2;
+      // ctx.strokeStyle = "black";
+      // ctx.beginPath();
+      // ctx.arc(175, 425, 20, 0, 2 * Math.PI);
+      // ctx.fillStyle = "white";
+      // ctx.fill();
+      // ctx.stroke();
+
+      // ctx.lineWidth = 2;
+      // ctx.strokeStyle = "black";
+      // ctx.beginPath();
+      // ctx.arc(165, 425, 6, 0, 2 * Math.PI);
+      // ctx.fillStyle = "black";
+      // ctx.fill();
+      // ctx.stroke();
+      // fin ojos
+      // fin actividad 4
+
+      // inicio actividad 5
+      // inicio de letras font
+      // ctx.font = "51px Apple Chancery";
+      // ctx.fillText("Hello There!", 147, 60);
+      // ctx.font = "50px Apple Chancery";
+
+      // const gradient = ctx.createLinearGradient(0, 0.5, 1.0, 100);
+      // gradient.addColorStop("0", "magenta");
+      // gradient.addColorStop("0.5", "blue");
+      // gradient.addColorStop("1.0", "red");
+      // ctx.fillStyle = gradient;
+      // ctx.fillText("Hello There!", 150, 60);
       // FIN FONT
 
-      //fin actividad 5
+      // fin actividad 5
 
-      //inicio actividad 6
-      //inicio image
-      var img = new Image();
-      img.src = "cumpleanos.png";
-      ctx.drawImage(img, 350, 150);
+      // inicio actividad 6
+      // inicio image
+      // var img = new Image();
+      // img.src = "cumpleanos.png";
+      // ctx.drawImage(img, 350, 150);
 
-      //fin imagen
-      //fin actividad 6
+      // fin imagen
+      // fin actividad 6
 
-      //inicio actividad 7
-      //inicio gradiante
-      var gdr = ctx.createLinearGradient(500, 500, 400, 250);
-      gdr.addColorStop(0, "red");
-      gdr.addColorStop(1, "blue");
-      ctx.fillStyle = gdr;
-      ctx.fillRect(500, 300, 200, 100);
+      // inicio actividad 7
+      // inicio gradiante
+      // var gdr = ctx.createLinearGradient(500, 500, 400, 250);
+      // gdr.addColorStop(0, "red");
+      // gdr.addColorStop(1, "blue");
+      // ctx.fillStyle = gdr;
+      // ctx.fillRect(500, 300, 200, 100);
       // fin gradiante
-      //inicio actividad 7
+      // inicio actividad 7
 
-      //inicio actividad 8
-      //circulo gradiante
-      const grd = ctx.createRadialGradient(700, 200, 5, 590, 560, 500);
-      grd.addColorStop(0, "yellow");
-      grd.addColorStop(1, "green");
-      ctx.fillStyle = grd;
-      ctx.fillRect(500, 150, 200, 100);
+      // inicio actividad 8
+      // circulo gradiante
+      // const grd = ctx.createRadialGradient(700, 200, 5, 590, 560, 500);
+      // grd.addColorStop(0, "yellow");
+      // grd.addColorStop(1, "green");
+      // ctx.fillStyle = grd;
+      // ctx.fillRect(500, 150, 200, 100);
       // fin circulo gradiante
-      //inicio actividad 8
+      // inicio actividad 8
+
+      //actividad 9
     </script>
   </body>
 </html>
