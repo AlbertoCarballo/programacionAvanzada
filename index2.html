@@ -64,6 +64,17 @@
             //console.log(e);
           }
         });
+
+      document
+        .getElementById("myCanvas")
+        .addEventListener("mousemove", function (e) {
+          ctx.beginPath();
+          ctx.arc(e.x, e.y, 5, 0, 2 * Math.PI);
+          ctx.fillStyle = "black";
+          ctx.fill();
+          ctx.stroke();
+          console.log("moviendome");
+        });
       // ctx.fillStyle = "rgb(35,25,190)";
       // ctx.fillRect(20, 20, 100, 100);
 
