@@ -34,54 +34,87 @@
         return color;
       }
 
-      document
-        .getElementById("myCanvas")
-        .addEventListener("mouseover", function (e) {
-          colorcito = getRandomColor();
-          console.log(e);
-        });
+      // document
+      //   .getElementById("myCanvas")
+      //   .addEventListener("mouseover", function (e) {
+      //     colorcito = getRandomColor();
+      //     console.log(e);
+      //   });
 
-      document
-        .getElementById("myCanvas")
-        .addEventListener("mouseout", function (e) {
-          figura = figura == 1 ? 2 : 1;
-        });
+      // document
+      //   .getElementById("myCanvas")
+      //   .addEventListener("mouseout", function (e) {
+      //     figura = figura == 1 ? 2 : 1;
+      //   });
 
-      document
-        .getElementById("myCanvas")
-        .addEventListener("mousedown", function (e) {
-          if (figura == 1) {
-            ctx.beginPath();
-            ctx.arc(e.x, e.y, 60, 0, 2 * Math.PI);
-            ctx.fillStyle = colorcito;
-            ctx.fill();
-            ctx.stroke();
-          } else {
-            ctx.fillStyle = colorcito;
-            ctx.fillRect(e.x, e.y, 100, 100);
+      // document
+      //   .getElementById("myCanvas")
+      //   .addEventListener("mousedown", function (e) {
+      //     if (figura == 1) {
+      //       ctx.beginPath();
+      //       ctx.arc(e.x, e.y, 60, 0, 2 * Math.PI);
+      //       ctx.fillStyle = colorcito;
+      //       ctx.fill();
+      //       ctx.stroke();
+      //     } else {
+      //       ctx.fillStyle = colorcito;
+      //       ctx.fillRect(e.x, e.y, 100, 100);
+      //     }
+
+      //     dibujando = true;
+      //   });
+
+      // document.getElementById("myCanvas")
+      //   .addEventListener("mouseup", function (e) {
+      //     console.log("ya no me presiona");
+      //     dibujando = false;
+      //   });
+
+      // document.getElementById("myCanvas")
+      //   .addEventListener("mousemove", function (e) {
+      //     if (dibujando) {
+      //       ctx.beginPath();
+      //       ctx.arc(e.x, e.y, 5, 0, 2 * Math.PI);
+      //       ctx.fillStyle = "black";
+      //       ctx.fill();
+      //       ctx.stroke();
+      //       console.log("moviendome");
+      //     } else {
+      //     }
+      //   });
+
+      var superX = 100;
+      var superY = 100;
+
+      ctx.fillRect(superX, superY, 100, 100);
+
+      document.addEventListener("keydown", function (e) {
+        ctx.fillStyle = "wheat";
+        ctx.fillRect(0, 0, 1000, 500);
+        ctx.fillStyle = getRandomColor();
+        ctx.fillRect(superX, superY, 100, 100);
+
+        switch (e.keyCode) {
+          case 87: {
+            superY -= 15;
+            break;
           }
-
-          dibujando = true;
-        });
-
-      document.getElementById("myCanvas")
-        .addEventListener("mouseup", function (e) {
-          console.log("ya no me presiona");
-          dibujando = false;
-        });
-
-      document.getElementById("myCanvas")
-        .addEventListener("mousemove", function (e) {
-          if (dibujando) {
-            ctx.beginPath();
-            ctx.arc(e.x, e.y, 5, 0, 2 * Math.PI);
-            ctx.fillStyle = "black";
-            ctx.fill();
-            ctx.stroke();
-            console.log("moviendome");
-          } else {
+          case 83: {
+            superY += 15;
+            break;
           }
-        });
+          case 65: {
+            superX -= 15;
+            break;
+          }
+          case 68: {
+            superX += 15;
+            break;
+          }
+        }
+        console.log(e.keyCode);
+      });
+
       // ctx.fillStyle = "rgb(35,25,190)";
       // ctx.fillRect(20, 20, 100, 100);
 
