@@ -112,7 +112,16 @@
             break;
           }
         }
-        console.log(e.keyCode);
+
+        if (superX > 985) {
+          superX = -35;
+        }else if (superY>485){
+          superY = -35;
+        }else if (superX< -35){
+          superX = 985;
+        }else if (superY< -35){
+          superY = 485;
+        }
       });
 
       // ctx.fillStyle = "rgb(35,25,190)";
