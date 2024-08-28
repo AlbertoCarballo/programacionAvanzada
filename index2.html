@@ -23,6 +23,7 @@
       var figura = 1;
       var dibujando = false;
       var direccion = "";
+      var velocidad = 15;
 
       var colorcito;
       function getRandomColor() {
@@ -92,19 +93,24 @@
       document.addEventListener("keydown", function (e) {
         switch (e.keyCode) {
           case 87: {
-            direccion="arriba";
+            direccion = "arriba";
             break;
           }
           case 83: {
-            direccion="abajo";
+            direccion = "abajo";
             break;
           }
           case 65: {
-            direccion="izquierda";
+            direccion = "izquierda";
             break;
           }
           case 68: {
-            direccion="derecha";
+            direccion = "derecha";
+            break;
+          }
+
+          case 32: {
+            velocidad += 2;
             break;
           }
         }
@@ -113,19 +119,19 @@
       function actualizar() {
         switch (direccion) {
           case "arriba": {
-            superY -= 15;
+            superY -= velocidad;
             break;
           }
           case "abajo": {
-            superY += 15;
+            superY += velocidad;
             break;
           }
           case "izquierda": {
-            superX -= 15;
+            superX -= velocidad;
             break;
           }
           case "derecha": {
-            superX += 15;
+            superX += velocidad;
             break;
           }
         }
@@ -143,6 +149,9 @@
       function repintarPantalla() {
         ctx.fillStyle = "wheat";
         ctx.fillRect(0, 0, 1000, 500);
+        ctx.fillStyle = "black";
+        ctx.font = "51px Apple Chancery";
+        ctx.fillText("Velocidad: " + velocidad, 650, 60);
         ctx.fillStyle = getRandomColor();
         ctx.fillRect(superX, superY, 100, 100);
 
