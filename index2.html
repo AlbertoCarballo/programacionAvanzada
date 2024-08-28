@@ -22,6 +22,7 @@
 
       var figura = 1;
       var dibujando = false;
+      var direccion = "";
 
       var colorcito;
       function getRandomColor() {
@@ -86,43 +87,80 @@
       var superX = 100;
       var superY = 100;
 
-      ctx.fillRect(superX, superY, 100, 100);
+      // repintarPantalla(ctx);
 
       document.addEventListener("keydown", function (e) {
+        switch (e.keyCode) {
+          case 87: {
+            direccion="arriba";
+            break;
+          }
+          case 83: {
+            direccion="abajo";
+            break;
+          }
+          case 65: {
+            direccion="izquierda";
+            break;
+          }
+          case 68: {
+            direccion="derecha";
+            break;
+          }
+        }
+      });
+
+      function actualizar() {
+        switch (direccion) {
+          case "arriba": {
+            superY -= 15;
+            break;
+          }
+          case "abajo": {
+            superY += 15;
+            break;
+          }
+          case "izquierda": {
+            superX -= 15;
+            break;
+          }
+          case "derecha": {
+            superX += 15;
+            break;
+          }
+        }
+        if (superX > 985) {
+          superX = -35;
+        } else if (superY > 485) {
+          superY = -35;
+        } else if (superX < -35) {
+          superX = 985;
+        } else if (superY < -35) {
+          superY = 485;
+        }
+      }
+
+      function repintarPantalla() {
         ctx.fillStyle = "wheat";
         ctx.fillRect(0, 0, 1000, 500);
         ctx.fillStyle = getRandomColor();
         ctx.fillRect(superX, superY, 100, 100);
 
-        switch (e.keyCode) {
-          case 87: {
-            superY -= 15;
-            break;
-          }
-          case 83: {
-            superY += 15;
-            break;
-          }
-          case 65: {
-            superX -= 15;
-            break;
-          }
-          case 68: {
-            superX += 15;
-            break;
-          }
-        }
+        actualizar();
+        requestAnimationFrame(repintarPantalla);
+      }
+      requestAnimationFrame(repintarPantalla);
 
-        if (superX > 985) {
-          superX = -35;
-        }else if (superY>485){
-          superY = -35;
-        }else if (superX< -35){
-          superX = 985;
-        }else if (superY< -35){
-          superY = 485;
-        }
-      });
+      window.requestAnimationFrame = (function () {
+        return (
+          window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          function (callback) {
+            window.setTimeout(callback, 17);
+          }
+        );
+      })();
 
       // ctx.fillStyle = "rgb(35,25,190)";
       // ctx.fillRect(20, 20, 100, 100);
