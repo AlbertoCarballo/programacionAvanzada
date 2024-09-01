@@ -302,12 +302,20 @@
       ctx.fillStyle = "rgba(255,255,255,0.5)";
       ctx.save();
       ctx.translate(200, 150);
-      ctx.rotate((110  * Math.PI) / 180);
+      ctx.rotate((110 * Math.PI) / 180);
       ctx.beginPath();
       ctx.ellipse(-220, -450, 40, 100, 0, 0, 2 * Math.PI);
-     // ctx.stroke();
+      // ctx.stroke();
       ctx.fill();
       ctx.restore();
+
+      ctx.fillStyle = "black";
+      ctx.font = "51px Apple Chancery";
+      ctx.fillText("Swag Squirtle ", 1000, 60);
+
+      ctx.fillStyle = "black";
+      ctx.font = "51px Apple Chancery";
+      ctx.fillText("Carballo Caballero Jesús Alberto ", 800, 1000);
     </script>
   </body>
 </html>
